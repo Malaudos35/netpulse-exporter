@@ -1,0 +1,12 @@
+services:
+  librespeed:
+    image: docker.io/adolfintel/speedtest
+    container_name: librespeed-server
+    restart: unless-stopped
+    environment:
+      # Désactive la page d'accueil de résultats publics (optionnel)
+      - MODE=standalone
+      # Active/désactive certains tests
+      - ENABLE_ID_OBFUSCATION=false
+    ports:
+      - "1081:80"
